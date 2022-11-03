@@ -14,7 +14,7 @@ final class FediverseUserOptionOutput implements IUserOptionOutput
      */
     public function getOutput(User $user, UserOption $option, $value)
     {
-        if (empty($value)) {
+        if ($value === null || $value === '') {
             return '';
         }
 
