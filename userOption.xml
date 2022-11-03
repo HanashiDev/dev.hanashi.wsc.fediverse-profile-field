@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/5.4/userOption.xsd">
+	<import>
+		<options>
+			<option name="fediverse">
+				<categoryname>profile.contact</categoryname>
+				<optiontype>text</optiontype>
+				<validationpattern>^[@]([a-zA-Z0-9_]+)[@]((?=[a-z0-9-]{1,63}\.)(xn--)?[a-z0-9]+(-[a-z0-9]+)*\.)+[a-z]{2,63}$</validationpattern>
+				<outputclass>wcf\system\option\user\FediverseUserOptionOutput</outputclass>
+				<searchable>1</searchable>
+				<visible>15</visible>
+				<editable>3</editable>
+			</option>
+		</options>
+	</import>
+</data>

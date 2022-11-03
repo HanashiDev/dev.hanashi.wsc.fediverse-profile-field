@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<language xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/5.4/language.xsd" languagecode="en" languagename="English" countrycode="gb">
+	<import>
+		<category name="wcf.user.option">
+			<item name="wcf.user.option.fediverse"><![CDATA[Fediverse]]></item>
+			<item name="wcf.user.option.fediverse.description"><![CDATA[In this field the user name for the Fediverse (e.g. Mastodon, Pixelfed, Misskey, etc.) can be entered. The format should be <kbd>@Username@Domain.tld</kbd>.]]></item>
+		</category>
+	</import>
+</language>
