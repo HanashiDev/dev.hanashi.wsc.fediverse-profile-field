@@ -3,7 +3,7 @@
 	<import>
 		<category name="wcf.user.option">
 			<item name="wcf.user.option.fediverse"><![CDATA[Fediverse]]></item>
-			<item name="wcf.user.option.fediverse.description"><![CDATA[In diesem Feld kann der Benutzername für das Fediverse (z.B. Mastodon, Pixelfed, Misskey, etc.) eingegeben werden. Das Format sollte <kbd>@Benutzername@Domain.tld</kbd> sein.]]></item>
+			<item name="wcf.user.option.fediverse.description"><![CDATA[In diesem Feld kann der Benutzername für das Fediverse (z.B. Mastodon, Pixelfed, Misskey, etc.) eingegeben werden. Das Format sollte <kbd>@Benutzername@example.com</kbd> sein.]]></item>
 		</category>
 	</import>
 </language>
