@@ -6,7 +6,7 @@
 		<packagename language="de">Fediverse Profilfeld</packagename>
 		<packagedescription>Profile field for the Fediverse</packagedescription>
 		<packagedescription language="de">Profilfeld für des Fediverse</packagedescription>
-		<version>1.0.0</version>
+		<version>1.0.1</version>
 		<date>2022-11-03</date>
 	</packageinformation>
 	<authorinformation>
@@ -22,6 +22,10 @@
 	<instructions type="install">
 		<instruction type="file"/>
 		<instruction type="userOption"/>
+		<instruction type="language"/>
+	</instructions>
+	<instructions type="update" fromversion="1.0.0">
+		<instruction type="file"/>
 		<instruction type="language"/>
 	</instructions>
 </package>
