@@ -2,9 +2,10 @@
 
 namespace wcf\system\option\user;
 
-use Laminas\Diactoros\Uri;
 use wcf\data\user\option\UserOption;
 use wcf\data\user\User;
+use wcf\system\exception\SystemException;
+use wcf\util\JSON;
 use wcf\util\StringUtil;
 
 final class FediverseUserOptionOutput implements IUserOptionOutput
@@ -18,16 +19,12 @@ final class FediverseUserOptionOutput implements IUserOptionOutput
             return '';
         }
 
-        $values = \explode('@', $value);
-        if (\count($values) !== 3) {
+        try {
+            $data = JSON::decode($value);
+
+            return StringUtil::getAnchorTag($data['href'], $data['value']);
+        } catch (SystemException $e) {
             return '';
         }
-
-        $url = (new Uri())
-            ->withScheme('https')
-            ->withHost($values[2])
-            ->withPath('@' . $values[1]);
-
-        return StringUtil::getAnchorTag((string)$url, $value);
     }
 }

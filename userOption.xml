@@ -4,8 +4,7 @@
 		<options>
 			<option name="fediverse">
 				<categoryname>profile.contact</categoryname>
-				<optiontype>text</optiontype>
-				<validationpattern>^[@]([a-zA-Z0-9_]+)[@]((?=[a-z0-9-]{1,63}\.)(xn--)?[a-z0-9]+(-[a-z0-9]+)*\.)+[a-z]{2,63}$</validationpattern>
+				<optiontype>fediverseUser</optiontype>
 				<outputclass>wcf\system\option\user\FediverseUserOptionOutput</outputclass>
 				<searchable>1</searchable>
 				<visible>15</visible>
