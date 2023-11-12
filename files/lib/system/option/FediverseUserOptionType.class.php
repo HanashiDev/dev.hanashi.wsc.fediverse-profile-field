@@ -50,6 +50,12 @@ final class FediverseUserOptionType extends TextOptionType
      */
     public function getData(Option $option, $newValue)
     {
+        // Check if the value is empty
+        if ($newValue === '') {
+            // Value is empty, don't encode and save
+            return '';
+        }
+
         return JSON::encode([
             'value' => $newValue,
             'href' => $this->getLink($newValue),
