@@ -56,6 +56,15 @@ final class FediverseUserOptionType extends TextOptionType
             return '';
         }
 
+        try {
+            $fediverseData = $option->user->getUserOption('fediverse');
+            $optionData = JSON::decode($fediverseData);
+            if (isset($optionData['value']) && $optionData['value'] === $newValue) {
+                return $fediverseData;
+            }
+        } catch (SystemException) {
+        }
+
         return JSON::encode([
             'value' => $newValue,
             'href' => $this->getLink($newValue),
