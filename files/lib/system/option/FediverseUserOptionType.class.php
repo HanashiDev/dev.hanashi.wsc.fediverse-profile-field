@@ -62,7 +62,7 @@ final class FediverseUserOptionType extends TextOptionType
             if (isset($optionData['value']) && $optionData['value'] === $newValue) {
                 return $fediverseData;
             }
-        } catch (SystemException) {
+        } catch (SystemException $e) {
         }
 
         return JSON::encode([
