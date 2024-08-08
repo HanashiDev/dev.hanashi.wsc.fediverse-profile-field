@@ -5,6 +5,7 @@ namespace wcf\system\option;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Psr7\Request;
 use Laminas\Diactoros\Uri;
+use Override;
 use Throwable;
 use wcf\data\option\Option;
 use wcf\system\exception\SystemException;
@@ -18,9 +19,7 @@ final class FediverseUserOptionType extends TextOptionType
 
     private string $error;
 
-    /**
-     * @inheritDoc
-     */
+    #[Override]
     public function getFormElement(Option $option, $value)
     {
         try {
@@ -33,9 +32,7 @@ final class FediverseUserOptionType extends TextOptionType
         return parent::getFormElement($option, $value);
     }
 
-    /**
-     * @inheritDoc
-     */
+    #[Override]
     public function validate(Option $option, $newValue)
     {
         parent::validate($option, $newValue);
@@ -45,9 +42,7 @@ final class FediverseUserOptionType extends TextOptionType
         }
     }
 
-    /**
-     * @inheritDoc
-     */
+    #[Override]
     public function getData(Option $option, $newValue)
     {
         // Check if the value is empty
