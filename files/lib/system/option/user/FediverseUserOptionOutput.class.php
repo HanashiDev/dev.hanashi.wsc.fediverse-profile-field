@@ -2,6 +2,7 @@
 
 namespace wcf\system\option\user;
 
+use Override;
 use wcf\data\user\option\UserOption;
 use wcf\data\user\User;
 use wcf\system\exception\SystemException;
@@ -10,9 +11,7 @@ use wcf\util\StringUtil;
 
 final class FediverseUserOptionOutput implements IUserOptionOutput
 {
-    /**
-     * @inheritDoc
-     */
+    #[Override]
     public function getOutput(User $user, UserOption $option, $value)
     {
         if ($value === null || $value === '') {
@@ -23,7 +22,7 @@ final class FediverseUserOptionOutput implements IUserOptionOutput
             $data = JSON::decode($value);
 
             return StringUtil::getAnchorTag($data['href'], $data['value']);
-        } catch (SystemException $e) {
+        } catch (SystemException) {
             return '';
         }
     }

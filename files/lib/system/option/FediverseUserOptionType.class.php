@@ -5,6 +5,7 @@ namespace wcf\system\option;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Psr7\Request;
 use Laminas\Diactoros\Uri;
+use Override;
 use Throwable;
 use wcf\data\option\Option;
 use wcf\system\exception\SystemException;
@@ -18,24 +19,20 @@ final class FediverseUserOptionType extends TextOptionType
 
     private string $error;
 
-    /**
-     * @inheritDoc
-     */
+    #[Override]
     public function getFormElement(Option $option, $value)
     {
         try {
             $data = JSON::decode($value);
             $value = $data['value'];
-        } catch (SystemException $e) {
+        } catch (SystemException) {
             $value = '';
         }
 
         return parent::getFormElement($option, $value);
     }
 
-    /**
-     * @inheritDoc
-     */
+    #[Override]
     public function validate(Option $option, $newValue)
     {
         parent::validate($option, $newValue);
@@ -45,9 +42,7 @@ final class FediverseUserOptionType extends TextOptionType
         }
     }
 
-    /**
-     * @inheritDoc
-     */
+    #[Override]
     public function getData(Option $option, $newValue)
     {
         // Check if the value is empty
@@ -62,7 +57,7 @@ final class FediverseUserOptionType extends TextOptionType
             if (isset($optionData['value']) && $optionData['value'] === $newValue) {
                 return $fediverseData;
             }
-        } catch (SystemException $e) {
+        } catch (SystemException) {
         }
 
         return JSON::encode([
@@ -71,7 +66,7 @@ final class FediverseUserOptionType extends TextOptionType
         ]);
     }
 
-    private function getLink($value)
+    private function getLink($value): string
     {
         if (
             \preg_match(
