@@ -22,7 +22,7 @@ final class FediverseUserOptionOutput implements IUserOptionOutput
             $data = JSON::decode($value);
 
             return StringUtil::getAnchorTag($data['href'], $data['value']);
-        } catch (SystemException $e) {
+        } catch (SystemException) {
             return '';
         }
     }
