@@ -66,7 +66,7 @@ final class FediverseUserOptionType extends TextOptionType
         ]);
     }
 
-    private function getLink($value)
+    private function getLink($value): string
     {
         if (
             \preg_match(
