@@ -8,7 +8,6 @@ use Laminas\Diactoros\Uri;
 use Override;
 use Throwable;
 use wcf\data\option\Option;
-use wcf\system\exception\SystemException;
 use wcf\system\exception\UserInputException;
 use wcf\system\io\HttpFactory;
 use wcf\util\JSON;
@@ -25,7 +24,7 @@ final class FediverseUserOptionType extends TextOptionType
         try {
             $data = JSON::decode($value);
             $value = $data['value'];
-        } catch (SystemException) {
+        } catch (Throwable) {
             $value = '';
         }
 
@@ -57,7 +56,7 @@ final class FediverseUserOptionType extends TextOptionType
             if (isset($optionData['value']) && $optionData['value'] === $newValue) {
                 return $fediverseData;
             }
-        } catch (SystemException) {
+        } catch (Throwable) {
         }
 
         return JSON::encode([
